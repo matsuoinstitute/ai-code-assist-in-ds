@@ -1,0 +1,15 @@
+Loading data...
+Train shape: (17307, 3)
+Test shape: (3, 2)
+Creating TF-IDF features...
+Feature matrix shape: (17307, 1000)
+Training Ridge regression...
+Cross-validation RMSE: 0.7378
+Predictions: [2 3 4]
+Submission saved to submission.csv
+
+Submission content:
+  essay_id  score
+0  000d118      2
+1  000fe60      3
+2  001ab80      4

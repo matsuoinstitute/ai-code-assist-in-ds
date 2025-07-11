@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/amex-default-prediction-cline/simple_model_test.py", line 86, in simple_test
+    X_test = test_features[feature_cols].fillna(0)
+             ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/pandas/core/frame.py", line 4108, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/opt/homebrew/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6252, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['D_88_mean', 'D_88_last', 'D_88_std'] not in index"
+=== Simple Model Test ===
+Loading data...
+Train data shape: (5000, 190)
+Test data shape: (2500, 190)
+Target rate: 0.2589
+Simple feature engineering...
+Train features shape: (411, 560)
+Test features shape: (204, 557)
+Final feature shape: (411, 559)
+Number of features: 559
+Training Random Forest...
+Validation AUC: 0.952310
+Making predictions...
+Error: "['D_88_mean', 'D_88_last', 'D_88_std'] not in index"
+
+✗ Simple model test failed!

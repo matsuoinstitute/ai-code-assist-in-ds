@@ -1,0 +1,23 @@
+Loading data...
+Train shape: (17307, 3)
+Test shape: (3, 2)
+Extracting essay features...
+Creating TF-IDF features...
+Combined feature matrix shape: (17307, 2015)
+Training and evaluating models...
+Training Ridge...
+Ridge - Cross-validation RMSE: 0.6397 (+/- 0.0140)
+Training RandomForest...
+RandomForest - Cross-validation RMSE: 0.6509 (+/- 0.0158)
+Training GradientBoosting...
+GradientBoosting - Cross-validation RMSE: 0.5982 (+/- 0.0103)
+
+Best model: GradientBoosting with RMSE: 0.5982
+Final predictions: [3 3 4]
+Enhanced submission saved to enhanced_submission.csv
+
+Submission content:
+  essay_id  score
+0  000d118      3
+1  000fe60      3
+2  001ab80      4

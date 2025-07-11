@@ -1,0 +1,61 @@
+=== American Express Default Prediction ===
+Loading sample data for initial testing...
+Loading data...
+Sample submission shape: (924621, 2)
+Sample submission columns: ['customer_ID', 'prediction']
+Train labels shape: (458913, 2)
+Train labels columns: ['customer_ID', 'target']
+Train data shape: (10000, 190)
+Test data shape: (5000, 190)
+
+Data Info:
+Train data columns: 190
+Unique customers in train: 826
+Target distribution: target
+0    340085
+1    118828
+Name: count, dtype: int64
+Target rate: 0.2589
+
+Processing training data...
+Feature engineering...
+Feature engineering completed. Shape: (826, 1309)
+Processing test data...
+Feature engineering...
+Feature engineering completed. Shape: (405, 1302)
+Final feature shape: (826, 1308)
+Features: 1308
+Starting 3-fold cross validation...
+Fold 1/3
+Training LightGBM model...
+Traceback (most recent call last):
+  File "/amex-default-prediction-cline/amex_default_prediction.py", line 269, in <module>
+    main()
+  File "/amex-default-prediction-cline/amex_default_prediction.py", line 244, in main
+    cv_scores = predictor.cross_validation(X, y, n_splits=3)  # サンプルなので3分割
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/amex-default-prediction-cline/amex_default_prediction.py", line 162, in cross_validation
+    model = self.train_model(X_train_fold, y_train_fold, X_val_fold, y_val_fold)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/amex-default-prediction-cline/amex_default_prediction.py", line 136, in train_model
+    model = lgb.train(
+            ^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/engine.py", line 297, in train
+    booster = Booster(params=params, train_set=train_set)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/basic.py", line 3656, in __init__
+    train_set.construct()
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/basic.py", line 2590, in construct
+    self._lazy_init(
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/basic.py", line 2123, in _lazy_init
+    data, feature_name, categorical_feature, self.pandas_categorical = _data_from_pandas(
+                                                                       ^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/basic.py", line 868, in _data_from_pandas
+    _pandas_to_numpy(data, target_dtype=target_dtype),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/basic.py", line 814, in _pandas_to_numpy
+    _check_for_bad_pandas_dtypes(data.dtypes)
+  File "/opt/homebrew/lib/python3.11/site-packages/lightgbm/basic.py", line 805, in _check_for_bad_pandas_dtypes
+    raise ValueError(
+ValueError: pandas dtypes must be int, float or bool.
+Fields with bad pandas dtypes: D_63_mode: object, D_64_mode: object

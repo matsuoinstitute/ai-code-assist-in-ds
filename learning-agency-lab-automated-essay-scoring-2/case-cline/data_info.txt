@@ -1,0 +1,53 @@
+=== TRAIN DATA INFO ===
+Train shape: (17307, 3)
+Train columns: ['essay_id', 'full_text', 'score']
+
+First few rows:
+  essay_id                                          full_text  score
+0  000d118  Many people have car where they live. The thin...      3
+1  000fe60  I am a scientist at NASA that is discussing th...      3
+2  001ab80  People always wish they had the same technolog...      4
+3  001bdc0  We all heard about Venus, the planet without a...      4
+4  002ba53  Dear, State Senator\n\nThis is a letter to arg...      3
+
+Data types:
+essay_id     object
+full_text    object
+score         int64
+dtype: object
+
+Score columns found: ['score']
+
+score stats:
+count    17307.000000
+mean         2.948402
+std          1.044899
+min          1.000000
+25%          2.000000
+50%          3.000000
+75%          4.000000
+max          6.000000
+Name: score, dtype: float64
+score unique values: [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+
+=== TEST DATA INFO ===
+Test shape: (3, 2)
+Test columns: ['essay_id', 'full_text']
+
+First few rows:
+  essay_id                                          full_text
+0  000d118  Many people have car where they live. The thin...
+1  000fe60  I am a scientist at NASA that is discussing th...
+2  001ab80  People always wish they had the same technolog...
+
+=== MISSING VALUES ===
+Train missing values:
+essay_id     0
+full_text    0
+score        0
+dtype: int64
+
+Test missing values:
+essay_id     0
+full_text    0
+dtype: int64
